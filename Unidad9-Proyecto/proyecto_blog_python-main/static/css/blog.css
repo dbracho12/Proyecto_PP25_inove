@@ -1,0 +1,69 @@
+/* -------- Seccion Usuario --------- */
+
+#seccionUsuario {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+#divFoto {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;    
+}
+
+#divFoto img {
+  width: 60%;
+  max-width: 150px;
+}
+
+#divFoto input {
+  width: 100%;
+  display: inline-block;
+  background-color: aqua;
+}
+
+#divFoto button {
+  display: inline-block;
+  width: 100%;
+}
+
+#divUsuario {
+  width: 50%;
+  text-align: center;
+}
+
+/* -------- Seccion Publicar --------- */
+
+#seccionPublicar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+}
+
+#seccionPublicar #titulo {
+  width: 100%;
+}
+
+#seccionPublicar #texto {
+   width: 100%;
+   font-size: 16px;
+ }
+
+#seccionPublicar button {
+  width: 100%;
+}
+
+/* -------- Seccion Posteos --------- */
+#posteos #texto {
+  padding: 10px;
+  text-align: left;
+  font-size: 16px;
+}

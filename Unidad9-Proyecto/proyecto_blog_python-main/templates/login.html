@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/inove_icon.png') }}" sizes="32x32" />
+    <title>Inove Blog</title>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <div>
+      <h4>inoveblog</h4>
+      </div>
+      <div id="user">
+      </div>
+    </header>
+    <section id="seccionLogin">
+      <h1>Bienvenido</h1>
+      <img src="{{ url_for('static', filename='images/inove_icon.png') }}" alt="inove" width="100">
+      <div id="containerLogin">
+        <label for="usuario"><b>Usuario</b></label>
+        <input id="username" type="text" value="" placeholder="usuario"/>
+        <button id="ingresar">Identificarse</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/inove_icon.png') }}" sizes="32x32" />
+  <title>Inove Blog</title>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <div>
+        <h4>inoveblog</h4>
+      </div>
+      <div id="user">
+        <a id="salir" href="#"><h3>salir</h3></a>
+        <img src="{{ url_for('static', filename='images/avatar_icon.png') }}" alt="inove" width="50">
+      </div>
+    </header>
+    <section id="seccionUsuario">
+        <h3 id="username">{{usuario}}</h3>
+    </section>
+    <section id="seccionPublicar">
+      <label for="titulo">Titulo:</label>      
+      <input type="text" id="titulo" name="titulo">
+      <label for="texto">Texto:</label>
+      <textarea id="texto" name="texto" placeholder="escriba su post" rows=3 minlength=10 maxlength=300></textarea>
+      <button id="publicar" path="/posteos">Publicar</button>
+    </section>
+    <section id="posteos">
+
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/blog.js') }}"></script>
+
+</body>
+</html>

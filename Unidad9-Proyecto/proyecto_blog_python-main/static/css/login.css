@@ -1,0 +1,19 @@
+
+/* -------- Seccion login --------- */
+#containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 16px;
+}
+
+#containerLogin label {
+    padding-top: 16px;
+}
+
+#containerLogin input {
+    font-size: 20px;
+    width: 100%;
+}
+
