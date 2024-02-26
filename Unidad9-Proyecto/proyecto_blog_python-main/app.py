@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 #Indicar de donde leer la base de dato
-app.config["SQLALCHEMY_DATABASE_URI"] = "SQLLITE:///posteos.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///posteos.db"
 
 db = SQLAlchemy()
 db.init_app(app)
@@ -15,7 +15,7 @@ db.init_app(app)
 #---------------- Crear Tabla de la base de dato--------------------- #
 class Posteos(db.Model):
     __tablename__ = "posteos"
-    id = db.Column(db.Interger,primary_key = True,)
+    id = db.Column(db.Integer,primary_key = True,)
     usuario = db.Column(db.String)
     titulo = db.Column(db.String)
     texto = db.Column(db.String)
@@ -44,6 +44,44 @@ def logearse():
     except:
         return jsonify({'trace': traceback.format_exc()})
 
+#-----------------Crear Endpoinds del Backkend ------------------------------#
+@app.route("/usuario/<nombre>")
+def usuario(nombre):
+    try:
+        # Renderizar el temaplate HTML user.html
+        
+        return render_template('blog.html', usuario=nombre)
+    except:
+        return jsonify({'trace': traceback.format_exc()})
+    
+@app.route("/", methods=['GET','POST'])
+def u():
+    
+    if request.method == 'GET':
+        try:
+            nombre = nombre.lower()
+
+
+            query = db.session.query(Posteos).filter(Posteos.titulo,Posteos.texto).order_by(Posteos.usuario.desc())
+            query =query.limit(3)
+
+            datos = []
+            for dato in query:
+                dato_json = {}
+                dato_json['titulo']= dato.titulo
+                dato_json['texto'] = dato.texto
+                datos.append(dato_json)
+
+
+            return jsonify(datos)
+
+        except:
+            return jsonify({'trace': traceback.format_exc()})
+    
+    #if request.method == 'POST':
+        
+
+
 
 
 
@@ -57,4 +95,4 @@ with app.app_context():
 
 if __name__ =='__main__':
     print('¡Provecto final del curso PP25 start!')
-app.run(host="172.0.0.1", port=5000)    
+app.run(host="127.0.0.1", port=5000)    
